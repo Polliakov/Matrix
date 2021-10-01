@@ -8,6 +8,10 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "rus");
+	double b;
+
+	cout << "Введите b: ";
+	cin >> b;
 
 	CVector** testCVectors = new CVector*[3];
 	for (int i = 0; i < 3; i++) {
@@ -21,12 +25,12 @@ int main() {
 	Matrix<CVector> A = Matrix<CVector>(3, 3, testCVectors);
 	Matrix<CVector> B = Matrix<CVector>(3, 3);
 
-	cout << "Матрица A<CVector>:" << endl;
+	cout << "\nМатрица A<CVector>" << endl;
 	A.print();
 
-	B = A * 2.5;
+	B = A * b;
 
-	cout << "\n\nМатрица B = A * 2.5:" << endl;
+	cout << "\n\nМатрица B = A * " << b << endl;
 	B.print();
 
 	cout << "\n\n--------------------------------------" << endl;
@@ -43,12 +47,12 @@ int main() {
 	Matrix<PVector> Ap = Matrix<PVector>(3, 3, testPVectors);
 	Matrix<PVector> Bp = Matrix<PVector>(3, 3);
 
-	cout << "\n\nМатрица A<PVector>:" << endl;
+	cout << "\n\nМатрица A<PVector>" << endl;
 	Ap.print();
 
-	Bp = Ap * 2.5;
+	Bp = Ap * b;
 
-	cout << "\n\nМатрица B = A * 2.5:" << endl;
+	cout << "\n\nМатрица B = A * " << b << endl;
 	Bp.print();
 
 	system("pause > nul");
