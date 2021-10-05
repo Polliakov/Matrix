@@ -30,7 +30,7 @@ public:
 
 		rounded = to_string(angle);
 		rounded.erase(rounded.length() - 4);
-		result += rounded + "deg";
+		result += rounded + "°";
 
 		return result;
 	}
@@ -58,13 +58,20 @@ public:
 	friend PVector operator*(PVector& left, double right)
 	{
 		PVector result(left);
-		result.radius *= right;
+
+		if (right >= 0) {
+			result.radius *= right;
+		}
+		else {
+			result.radius *= -right;
+			result.angle += 180;
+		}
 
 		return result;
 	}
 
-	friend string operator+(string left, PVector& right)
+	friend string operator+(PVector& pVector)
 	{
-		return left + right.toString();
+		return pVector.toString();
 	}
 };

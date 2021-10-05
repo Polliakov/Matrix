@@ -87,8 +87,8 @@ public:
 		return result;
 	}
 
-	friend string operator+(string left, CVector& right)
+	friend string operator+(CVector& cVector)
 	{
-		return left + right.toString();
+		return cVector.toString();
 	}
 };
